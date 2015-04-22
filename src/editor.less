@@ -1,0 +1,151 @@
+@editor-bg: #fff;
+@editor-pre-bg: #f3f3f3;
+@editor-menu-bg: #000;
+@editor-menu-color: #fff;
+
+[contentEditable=true]:empty:not(:focus):before{
+  content:attr(placeholder);
+  color:#aaa;
+}
+
+.editor-wrapper {
+  width: 80%;
+  margin: 0 auto;
+  overflow: scroll;
+  padding: 15px;
+}
+
+.editor {
+  width: 100%;
+  min-height: 300px;
+  font-size: 16px;
+  position: relative;
+  line-height: 1.5em;
+  display: inline-block;
+  background: @editor-bg;
+  color: #555;
+  overflow: scroll;
+  pre {
+    &:before {
+      content: "";
+      color: transparent;
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      border-left: 1px solid #dadada;
+    }
+    margin: 0;
+    position: relative;
+    border-radius: 0 !important;
+    display: inline-block;
+    width: 80%;
+    padding: 0 30px;
+    background: @editor-pre-bg !important;
+    text-shadow: 0 1px #fff;
+    line-height: 1.5;
+    clear: both;
+  }
+  &.fullscreen {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    padding: 0 50px;
+  }
+  transition: 0.3s all;
+}
+
+.editor:focus {
+  outline: 0px solid transparent;
+  border: 0px solid transparent;
+}
+
+.editor-menu {
+  position: fixed;
+  z-index: 9999;
+  border-radius: 4px;
+  height: 32px;
+  transition: all 0.3s;
+  color: #fff;
+}
+
+.editor-menu > ul {
+  margin: 0;
+  padding: 0;
+  &:after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    border: 6px solid @editor-menu-bg;
+    left: 45%;
+  }
+  &.at-bottom {
+    &:after {
+      bottom: -12px;
+      border-color: @editor-menu-bg transparent transparent transparent;
+    }
+  }
+  &.at-top {
+    &:after {
+      top: -12px;
+      border-color: transparent transparent @editor-menu-bg transparent;
+    }
+  }
+}
+
+.editor-menu > ul > li {
+  cursor: pointer;
+  &:first-child {
+    border-radius: 4px 0 0 4px;
+  }
+  &:last-child {
+    border-radius: 0 4px 4px 0;
+  }
+  position: relative;
+  list-style: none;
+  background: @editor-menu-bg;
+  display: inline-block;
+  color: #fff;
+  line-height: 32px;
+  height: 32px;
+  width: 32px;
+  text-align: center;
+  &.actived, &:hover {
+    background: #449d44;
+    > .sub-menu{
+      display: block;
+    }
+  }
+  > .sub-menu {
+    display: none;
+    padding: 0;
+    margin: 0;
+    z-index: 9;
+    position: absolute;
+    top: 0;
+    transition: 0.3s all;
+    > li {
+      height: 32px;
+      width: 32px;
+      list-style: none;
+      background: @editor-menu-bg;
+
+      &.actived, &:hover {
+        background: #449d44;
+        color: #fff;
+      }
+    }
+  }
+  > .image-selector{
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
