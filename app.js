@@ -14,7 +14,7 @@ angular.module("ieditor").run(function ($http, meditorProvider) {
 angular.module("ieditor").controller('EditorCtrl', function ($scope) {
 
     var strVar = "";
-    strVar += "<h1 style=\"text-align: center;\"><b style=\"line-height: 1.5;\">Yet another Medium style editor for AngularJS<\/b><\/h1>";
+    strVar += "<h1 style=\"text-align: center;\"><b style=\"line-height: 1.5;\">Medium style editor for AngularJS<\/b><\/h1>";
     strVar += "<div style=\"text-align: center;\">";
     strVar += "	<b style=\"line-height: 1.5;\">using contenteditable API<\/b>";
     strVar += "<\/div>";
