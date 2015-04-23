@@ -21,7 +21,7 @@ Demo: [http://icattlecoder.github.io/ngmeditor](http://icattlecoder.github.io/ng
 
 ## Usage
 
-```
+```html
 <script type="text/javascript" src="bower_components/angular/angular.js"></script>
 <script type="text/javascript" src="bower_components/ng-file-upload/angular-file-upload-shim.js"></script>
 <script type="text/javascript" src="bower_components/ng-file-upload/angular-file-upload.js"></script>
@@ -37,7 +37,7 @@ Demo: [http://icattlecoder.github.io/ngmeditor](http://icattlecoder.github.io/ng
 
 JS:
 
-```
+```javascript
 //inject ngMeditor directives and services.
 angular.module("ieditor", ['angularFileUpload','ngMeditor']);
 
@@ -60,7 +60,7 @@ angular.module("ieditor").run(function ($http, meditorProvider) {
 
 You need implement token API, for example:
 
-```
+```go
 package main
 
 import (
