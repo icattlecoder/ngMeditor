@@ -164,8 +164,7 @@ angular.module('ngMeditor')
                 scope.menuY = 0;
                 scope.commands = config.supportCommands;
                 scope.editable = true;
-                scope.placeholder = attr['placeholder'];
-                console.log(scope.placeholder);
+                scope.placeholder = (attr['placeholder']!=undefined ? attr['placeholder'] : '');
                 var selection, range;
                 var menuWidth = (scope.commands.length) * 32;
 
