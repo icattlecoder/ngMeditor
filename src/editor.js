@@ -282,7 +282,10 @@ angular.module('ngMeditor')
                 function link() {
                     var LINKY_URL_REGEXP =
                         /((ftp|https?):\/\/|(www\.)|(mailto:)?[A-Za-z0-9._%+-]+@)\S*[^\s.;,(){}<>"”’]$/;
-                    var sub = selection.anchorNode.data.substring(0, selection.anchorOffset - 1);
+                    var sub = '';
+                    if (selection.anchorNode.data) {
+                      sub = selection.anchorNode.data.substring(0, selection.anchorOffset - 1);
+                    }
                     if (LINKY_URL_REGEXP.test(sub)) {
                         var matchs = sub.match(LINKY_URL_REGEXP);
                         if (matchs && matchs.length) {
@@ -351,7 +354,9 @@ angular.module('ngMeditor')
                     //code ```
                     if (evt.which === 192) code();
                     //link
-                    if (evt.which === 32) link();
+                    if ((!evt.ctrlKey && !evt.shiftKey) && evt.which === 32) {
+                      link();
+                    }
                 };
 
                 scope.doMouseup = function() {
